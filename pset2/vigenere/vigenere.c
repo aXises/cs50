@@ -8,7 +8,8 @@ int getShift (char c)
     if (isupper(c))
     {
         return c - 65;
-    } else 
+    }
+    else
     {
         return c - 97;
     }
@@ -21,16 +22,19 @@ char shiftChar(int shift, char c)
         if (c + shift <= 90)
         {
             return c + shift;
-        } else
+        }
+        else
         {
             return c + shift - 90 + 65 - 1;
         }
-    } else
+    }
+    else
     {
         if (c + shift <= 122)
         {
             return c + shift;
-        } else
+        }
+        else
         {
             return c + shift - 122 + 97 - 1;
         }
@@ -45,12 +49,10 @@ int main(int argc, string argv[])
     i = 0;
     j = 0;
     key = argv[argc - 1];
-    
     if (argc != 2)
     {
         return 1;
     }
-    
     for (int k = 0; k < strlen(key); k++)
     {
         if (!isalpha(key[k]))
@@ -58,12 +60,10 @@ int main(int argc, string argv[])
             return 1;
         }
     }
-    
     printf("plaintext: ");
     plaintext = get_string();
-    printf("ciphertext: "); 
-    
-    while (i < strlen(plaintext)) 
+    printf("ciphertext: ");
+    while (i < strlen(plaintext))
     {
         if (isalpha(plaintext[i]))
         {
@@ -71,19 +71,20 @@ int main(int argc, string argv[])
             printf("%c", shiftChar(shift, plaintext[i]));
             i++;
             j++;
-        } else
+        }
+        else
         {
             if (plaintext[i] == ' ')
             {
                 printf(" ");
-            } else
+            }
+            else
             {
                 printf("%c", plaintext[i]);
             }
             i++;
         }
     }
-    
     printf("\n");
 
     return 0;
