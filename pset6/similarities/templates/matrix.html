@@ -1,0 +1,35 @@
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            {% for c in s2 %}
+                <th>{{ c }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>0</th>
+            {% for c in s2 %}
+                <th>{{ loop.index }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in matrix %}
+        <tr>
+        {% if loop.index == 1 %}
+            <th></th>
+        {% else %}
+            <th>{{ s1[loop.index - 2] }}</th>
+        {% endif %}
+        <th>{{ loop.index - 1 }}</th>
+        {% for cost, op in row %}
+            <td>{{ cost }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <form action="/score" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <label>String 1</label>
+            <input class="form-control" name="string1" placeholder="String" type="text">
+        </div>
+        <div class="form-group">
+            <label>String 2</label>
+            <input class="form-control" name="string2" placeholder="String" type="text">
+        </div>
+        <button class="btn btn-default" type="submit">Score</button>
+    </form>
+
+{% endblock %}
